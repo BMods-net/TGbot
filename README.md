@@ -4,7 +4,7 @@ This is a Telegram bot for BMods services.
 
 ## Link
 
-Link for this bot: [t.me/bmods_infobot](t.me/bmods_infobot)
+Link for this bot: t.me/bmods_infobot
 
 ## Libraries
 
