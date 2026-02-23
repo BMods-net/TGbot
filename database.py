@@ -25,6 +25,17 @@ class Database:
                 timestamp TEXT
             )
         """)
+
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS error_report (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER,
+                user_name TEXT,
+                text TEXT,
+                timestamp TEXT
+            )
+        """)
+
         self.conn.commit()
 
     def add_user(self, user_id, full_name):
@@ -49,6 +60,14 @@ class Database:
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         self.cursor.execute(
             "INSERT INTO feedback (user_id, user_name, text, timestamp) VALUES (?, ?, ?, ?)",
+            (user_id, user_name, text, timestamp)
+        )
+        self.conn.commit()
+
+    def add_error_report(self, user_id, user_name, text):
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.cursor.execute(
+            "INSERT INTO error_report (user_id, user_name, text, timestamp) VALUES (?, ?, ?, ?)",
             (user_id, user_name, text, timestamp)
         )
         self.conn.commit()

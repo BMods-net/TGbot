@@ -23,7 +23,6 @@ async def cmd_nanotif(message: types.Message):
 async def cmd_feedback(message: types.Message, command: CommandObject):
     if not command.args:
         return await message.answer("Please, write a feedback text after /fb")
-    
     db.add_feedback(message.from_user.id, message.from_user.full_name, command.args)
     await message.answer("✅ Thanks for your feedback!")
 
@@ -34,6 +33,13 @@ async def cmd_repos(message: types.Message):
         f"NMAAA - https://github.com/BMods-net/NMAAA\n",
         parse_mode="HTML")
 
+@router.message(Command("reporterror"))
+async def cmd_feedback(message: types.Message, command: CommandObject):
+    if not command.args:
+        return await message.answer("Please, write an error report text after /reporterror")
+    db.add_error_report(message.from_user.id, message.from_user.full_name, command.args)
+    await message.answer("✅ Thanks for your error report!")
+
 @router.message(Command("help"))
 async def cmd_help(message: types.Message):
     await message.answer(f"<b>Commands for this bot:</b>\n\n"
@@ -42,6 +48,7 @@ async def cmd_help(message: types.Message):
         f"/repos - show all <b>BMods</b> mods with link for them.\n"
         f"/fb - give us your feedback about mods and/or this bot. Example: <code>/fb Bot is great!</code>\n"
         f"/anotif - subscribe on notifications in this bot.\n"
-        f"/nanotif - unsubscribe on notifications in this bot.\n\n"
+        f"/nanotif - unsubscribe on notifications in this bot.\n"
+        f"/reporterror - report errors in this bot.\n\n"
         f"NOTE: by defoult notifications are on.",
         parse_mode="HTML")
