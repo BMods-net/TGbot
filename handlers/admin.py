@@ -33,4 +33,4 @@ async def cmd_notify(message: types.Message, command: CommandObject):
         except Exception:
             pass
     
-    await message.answer(f"📢 Рассылка завершена!\n✅Получателей: {count}")
+    await message.answer(f"📢 Completed!\n✅Got: {count}")
