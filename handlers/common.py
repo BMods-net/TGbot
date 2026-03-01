@@ -28,9 +28,12 @@ async def cmd_feedback(message: types.Message, command: CommandObject):
 
 @router.message(Command("repos"))
 async def cmd_repos(message: types.Message):
-    await message.answer(f"All <b>BMods</b> mods repositories:\n\n"
+    await message.answer(f"All <b>BMods</b> repositories:\n\n"
         f"Cuprarria - https://github.com/BMods-net/Cuprarria\n"
-        f"NMAAA - https://github.com/BMods-net/NMAAA\n",
+        f"NMAAA - https://github.com/BMods-net/NMAAA\n"
+        f"TGbot - https://github.com/BMods-net/TGbot\n"
+        f"DSbot - https://github.com/BMods-net/DSbot\n"
+        f"Site - https://github.com/BMods-net/site\n",
         parse_mode="HTML")
 
 @router.message(Command("reporterror"))
