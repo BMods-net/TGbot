@@ -1,20 +1,26 @@
-.env
-tokens.txt
-feedback.txt
-
-__pycache__/
-*.py[cod]
-*$py.class
-venv/
-env/
-.venv/
-
-*.db
-*.sqlite3
-
-*.log
-logs/
-
+# IDEs
 .vscode/
 .idea/
 .vs/
+
+# Secrets
+.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+
+# Databases
+*.db
+*.sqlite3
+
+# Logs
+*.log
+logs/
+
+# Other
+.DS_Store
+feedback.txt
